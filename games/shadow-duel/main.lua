@@ -2,10 +2,11 @@ function love.load()
     -- window bar title
     love.window.setTitle('Fight Scene')
 
-    GMusic = love.audio.newSource("sounds/music.mp3")
-    love.audio.play(GMusic)
+    sounds = {}
+    sounds['music'] = love.audio.newSource("sounds/music.mp3")
+    sounds['ding'] = love.audio.newSource("sounds/ding.wav")
 
-    GMusic = love.audio.newSource("sounds/ding.wav")
+    love.audio.play(sounds['music'])
 
     -- seed the RNG
     math.randomseed(os.time())
@@ -24,14 +25,27 @@ function love.keyboard.wasPressed(key)
     end
 end
 
+loopDur = 2
+loopPos = 0
 function love.update(dt)
     love.keyboard.keysPressed = {}
-    GMusicPlayPos = GMusic:tell()
+    GMusicPlayPos = sounds['music']:tell()
+
+    loopPos = loopPos + dt
+    if loopPos > loopDur then
+        -- .5 to 2
+        local r = math.random()*1.5+0.5
+        print(r)
+        sounds['ding']:setPitch(r)
+        love.audio.play(sounds['ding'])
+        loopPos = 0
+    end
 end
 
 function love.draw()
     love.graphics.print("hello!", 0, 0)
-    love.graphics.print(GMusicPlayPos, 0, 20)
+    love.graphics.print("Music Pos" .. GMusicPlayPos, 0, 20)
+    love.graphics.print("Loop Pos" .. loopPos, 0, 40)
 end
 
 
