@@ -1,15 +1,5 @@
 Tile = Class{}
 
-local TILE_SIZE = 16
-
-local COLORS = {
-  RED = {1, 0, 0},
-  GREEN = {0, 1, 0},
-  BLUE = {0, 0, 1},
-  BROWN = {.65, .16, .16},
-  WHITE = {1, 1, 1},
-}
-
 local KIND = {
     grass = {
         color = COLORS.GREEN,

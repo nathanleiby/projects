@@ -1,8 +1,5 @@
 Player = Class{}
 
-local YELLOW = {1,1,0}
-local PURPLE = {1,0,1}
-
 function Player:init(playerNum)
     self.playerNum = playerNum
 
@@ -10,7 +7,7 @@ function Player:init(playerNum)
     self.mapY = 1
 
     if playerNum == 1 then
-        self.color = YELLOW
+        self.color = COLORS.YELLOW
         self.input = baton.new {
             controls = {
                 left = {'key:left', 'axis:leftx-', 'button:dpleft'},
@@ -22,10 +19,10 @@ function Player:init(playerNum)
             pairs = {
                 move = {'left', 'right', 'up', 'down'}
             },
-            joystick = love.joystick.getJoysticks()[1],
+            joystick = love.joystick.getJoysticks()[playerNum],
         }
     elseif playerNum == 2 then
-        self.color = PURPLE
+        self.color = COLORS.PURPLE 
         self.input = baton.new {
             -- TODO: Add a PR to baton to expose all key names as consts for autocomplete,
             -- keys.. get them from https://love2d.org/wiki/KeyConstant
@@ -40,7 +37,7 @@ function Player:init(playerNum)
             pairs = {
                 move = {'left', 'right', 'up', 'down'}
             },
-            joystick = love.joystick.getJoysticks()[2],
+            joystick = love.joystick.getJoysticks()[playerNum],
         }
     end
 end
@@ -51,9 +48,8 @@ function Player:move(x,y)
 end
 
 function Player:update(dt)
-end
 
-local TILE_SIZE = 16 -- TODO: global consts?
+end
 
 function Player:render()
     local x = (self.mapX -1) * TILE_SIZE
@@ -62,5 +58,7 @@ function Player:render()
     love.graphics.setColor(self.color)
     local radius = TILE_SIZE/2
     love.graphics.circle('fill', x+radius, y+radius, radius)
+    love.graphics.setColor({0,0,0})
+    love.graphics.printf(self.playerNum, x, y, radius*2, "center")
     love.graphics.setColor({1,1,1})
 end

@@ -15,12 +15,23 @@ function GameMap:init()
         table.insert(self.tiles, row)
     end
 
-    -- generate a path 
+    -- generate path(s) and enemy start location(s)
     -- start with a simple path from left to right
     local y=math.random(2,self.mapHeight-1)
     for x=1,self.mapWidth do
         self.tiles[y][x].kind = "path"
     end
+    self.enemyStart = {x=1,y=y}
+    self.enemyEnd = {x=self.mapWidth+1,y=y}
+
+end
+
+function GameMap:enemyStartLocation()
+    return self.enemyStart
+end
+
+function GameMap:enemyEndLocation()
+    return self.enemyEnd
 end
 
 function GameMap:render()

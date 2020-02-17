@@ -43,6 +43,7 @@ require 'src/states/game/PlayState'
 require 'src/Tile'
 require 'src/GameMap'
 require 'src/Player'
+require 'src/Enemy'
 
 -- gSounds = {
 --     ['jump'] = love.audio.newSource('sounds/jump.wav'),

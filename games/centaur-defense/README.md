@@ -10,10 +10,14 @@ Features to build:
   - [x] move with keyboard
   - [x] move with controller
 - [x] add a 2nd player
-- have enemies walk along the path
-- allow user to build a cen(tower)
-- allow towers to shoot enemies
-- some tilemaps for visualization
+- [x] have enemies walk along the path
+- [...] player goal: dont get over-run
+    - [x] starting health
+    - [x] lose health whenever enemy gets to end of path
+    - 0 health, lose
+- [ ] allow user to build a cen(tower)
+- [ ] allow towers to shoot enemies
+- [ ] some tilemaps for basic visual FX
 
 Ideas:
 - centaurs aren't static like normal towers. they can move
