@@ -5,6 +5,8 @@
 Class = require 'lib/class'
 push = require 'lib/push'
 Timer = require 'lib/knife.timer'
+baton = require 'lib/baton'
+lume = require 'lib/lume'
 
 --
 -- our own code
@@ -40,7 +42,7 @@ require 'src/states/game/PlayState'
 -- require 'src/Snail'
 require 'src/Tile'
 require 'src/GameMap'
-
+require 'src/Player'
 
 -- gSounds = {
 --     ['jump'] = love.audio.newSource('sounds/jump.wav'),

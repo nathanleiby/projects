@@ -31,6 +31,7 @@ end
 
 function love.keypressed(key)
     if key == 'escape' then
+        -- TODO: pop-up a "want to exit" or menu instead
         love.event.quit()
     end
 

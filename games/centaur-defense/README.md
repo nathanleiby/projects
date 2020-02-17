@@ -5,9 +5,11 @@ Tower defense with centaurs.
 Features to build:
 - [x] 24x36 grid
 - [x] color squares based on PATH or GROUND
-- allow user to walk around the grid
-- move with keyboard
-- move with controller
+- [x] show a "player"
+- [x] allow user to walk around the grid
+  - [x] move with keyboard
+  - [x] move with controller
+- [x] add a 2nd player
 - have enemies walk along the path
 - allow user to build a cen(tower)
 - allow towers to shoot enemies
