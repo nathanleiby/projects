@@ -18,6 +18,7 @@ Features to build:
 - [ ] allow user to build a cen(tower)
 - [ ] allow towers to shoot enemies
 - [ ] some tilemaps for basic visual FX
+- [x] allow fullscreen
 
 Ideas:
 - centaurs aren't static like normal towers. they can move
@@ -30,6 +31,7 @@ Ideas:
     - start with local coop
 - allow using controllers (nonkeyboard)
 - what kind of layout? (grid, hex, neither)
+- explore rendering text in hi-res, even tho graphics in low res https://www.reddit.com/r/gamedev/comments/1i5tck/what_resolution_is_appropriate_for_a_modern/cb1owqr
 
 Graphics:
 - https://opengameart.org/content/centaur-0

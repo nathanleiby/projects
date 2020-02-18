@@ -1,5 +1,7 @@
 require 'src/Dependencies' 
 
+local isFullscreen = false
+
 function love.load()
     love.graphics.setDefaultFilter('nearest', 'nearest')
     -- love.graphics.setFont(gFonts['medium'])
@@ -33,6 +35,12 @@ function love.keypressed(key)
     if key == 'escape' then
         -- TODO: pop-up a "want to exit" or menu instead
         love.event.quit()
+    end
+
+    if key == 'f11' then
+        -- Toggle full-screen mode
+        isFullscreen = not isFullscreen
+        love.window.setFullscreen(isFullscreen, 'desktop')
     end
 
     love.keyboard.keysPressed[key] = true

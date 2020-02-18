@@ -2,9 +2,15 @@
 WINDOW_WIDTH = 1280
 WINDOW_HEIGHT = 720
 
--- size we're trying to emulate with push
-VIRTUAL_WIDTH = 512
-VIRTUAL_HEIGHT = 289
+-- size we're trying to emulate with push (40 x 22)
+VIRTUAL_WIDTH = 640
+VIRTUAL_HEIGHT = 352
+
+-- 512x288
+-- 640x360 or 320x180 (16:9 ... widescreen)
+-- 640*352 (similar to previous but with 4px on top/bottom.. but fits 16x16 tiles nicely!
+-- 320x240 (4:3 ... QVGA)
+
 
 TILE_SIZE = 16
 

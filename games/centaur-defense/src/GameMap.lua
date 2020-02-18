@@ -4,8 +4,8 @@ GameMap = Class{}
 function GameMap:init()
     -- initialize GameMap
     self.tiles = {}
-    self.mapHeight = 18
-    self.mapWidth = 32
+    self.mapHeight = 22
+    self.mapWidth = 40
 
     for y=1,self.mapHeight do
         local row = {}
