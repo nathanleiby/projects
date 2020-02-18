@@ -15,6 +15,7 @@ Features to build:
     - [x] starting health
     - [x] lose health whenever enemy gets to end of path
     - 0 health, lose
+- [x] improve map generation
 - [ ] allow user to build a cen(tower)
 - [ ] allow towers to shoot enemies
 - [ ] some tilemaps for basic visual FX
@@ -42,3 +43,7 @@ Graphics:
 Libs:
 - Try using an inputs lib https://github.com/love2d-community/awesome-love2d#input
 
+
+Graphics Attiribution:
+- https://opengameart.org/content/16x16-tileset-water-dirt-forest
+- https://opengameart.org/content/forest-tiles

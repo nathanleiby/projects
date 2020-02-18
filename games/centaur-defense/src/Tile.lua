@@ -12,16 +12,21 @@ local KIND = {
     }
 }
 
-function Tile:init(mapX, mapY)
+function Tile:init(mapX, mapY, kind)
   self.mapX = mapX
   self.mapY = mapY
 
   -- determine tile type
-  local r = math.random()
-  if r < .8 then 
-    self.kind = "grass"
+  if kind then 
+    self.kind = kind
   else
-    self.kind = "water"
+    -- random kind
+    local r = math.random()
+    if r < .8 then 
+      self.kind = "grass"
+    else
+      self.kind = "water"
+    end
   end
 end
 
