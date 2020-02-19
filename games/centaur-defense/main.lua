@@ -2,6 +2,8 @@ require 'src/Dependencies'
 
 local isFullscreen = false
 
+iffy.newAtlas("assets/graphics/kenney_medievalRTSpack/Spritesheet/medievalRTS_spritesheet.png")
+
 function love.load()
     love.graphics.setDefaultFilter('nearest', 'nearest')
     -- love.graphics.setFont(gFonts['medium'])
@@ -41,6 +43,7 @@ function love.keypressed(key)
         -- Toggle full-screen mode
         isFullscreen = not isFullscreen
         love.window.setFullscreen(isFullscreen, 'desktop')
+        love.resize(love.graphics.getWidth(), love.graphics.getHeight())
     end
 
     love.keyboard.keysPressed[key] = true

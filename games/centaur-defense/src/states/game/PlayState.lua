@@ -52,12 +52,13 @@ end
 function PlayState:render()
     self.gameMap:render()
 
-    for i=1,#self.players do
-        self.players[i]:render()
-    end
-
     for i=1,#self.enemies do
         self.enemies[i]:render()
+    end
+
+    -- render players last
+    for i=1,#self.players do
+        self.players[i]:render()
     end
 
     love.graphics.setColor(COLORS.BLACK)

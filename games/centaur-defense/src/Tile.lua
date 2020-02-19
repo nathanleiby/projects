@@ -1,14 +1,19 @@
 Tile = Class{}
 
+local scale = 0.25 -- 64px => 16px
+
 local KIND = {
     grass = {
         color = COLORS.GREEN,
+        sprite =  "medievalTile_57.png"
     },
     water = {
         color = COLORS.BLUE,
+        sprite =  "medievalTile_27.png"
     },
     path = {
         color = COLORS.BROWN,
+        sprite =  "medievalTile_04.png"
     }
 }
 
@@ -34,8 +39,9 @@ function Tile:render()
     local x = (self.mapX -1) * TILE_SIZE
     local y = (self.mapY - 1) * TILE_SIZE
 
-    love.graphics.setColor(KIND[self.kind].color)
-    -- love.graphics.rectangle('fill', x+1, y+1, TILE_SIZE-1, TILE_SIZE-1)
-    love.graphics.rectangle('fill', x, y, TILE_SIZE, TILE_SIZE)
-    love.graphics.setColor(COLORS.WHITE)
+    -- love.graphics.setColor(KIND[self.kind].color)
+    -- love.graphics.rectangle('fill', x, y, TILE_SIZE, TILE_SIZE)
+    -- love.graphics.setColor(COLORS.WHITE)
+
+    iffy.drawSprite(KIND[self.kind].sprite, x, y, 0, scale, scale)
 end

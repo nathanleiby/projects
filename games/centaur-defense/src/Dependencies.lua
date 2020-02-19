@@ -7,6 +7,7 @@ push = require 'lib/push'
 Timer = require 'lib/knife.timer'
 baton = require 'lib/baton'
 lume = require 'lib/lume'
+iffy = require 'lib/iffy'
 
 --
 -- our own code
