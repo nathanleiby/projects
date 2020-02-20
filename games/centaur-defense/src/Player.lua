@@ -49,6 +49,18 @@ function Player:move(x,y)
     self.mapY = self.mapY + lume.round(y)
 end
 
+-- instead of attacking, what about stomping on enemies?
+function Player:checkForCollision(target)
+    -- the player sprite currently has a H=3 tiles and W=2 tiles the top 
+    -- the top row *wont* collide, but the rest will (anything marked "X")
+    -- [ O O ]
+    -- [ X X ]
+    -- [ X X ]
+    local xAligned = (target.mapX == self.mapX) or (target.mapX == self.mapX + 1)
+    local yAligned = (target.mapY == self.mapY+1) or (target.mapY == self.mapY + 2)
+    return xAligned and yAligned
+end
+
 function Player:update(dt)
 
 end

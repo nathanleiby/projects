@@ -15,8 +15,11 @@ Features to build:
     - 0 health, lose
 - [x] improve map generation
 - [x] some tilemaps for basic visual FX
-- [ ] better walkin around
-- [ ] add player and enemy sprites
+- [ ] better walkin around 
+- [ ] smoother enemy movement - add tweening or update by frame instead of tick?
+- [ ] draw centaur in diff colors
+- [x] add player and enemy sprites
+- [x] allow player to attack enemies (squish!)
 - [ ] allow user to build a cen(tower)
 - [ ] allow towers to shoot enemies
 - [ ] update player start locations - corners? on certain landtype?
@@ -28,6 +31,8 @@ Features to build:
     - enemy death
     - spawning a centaur
     - movement
+- [ ] more complex enemy paths
+- [ ] multiple enemy spawn points
 - build GUI around the map
     - player:
         - centaur selection
