@@ -28,6 +28,8 @@ function Enemy:die()
     end
     self.dead = true
     self.timeSinceDeath = 0
+
+    gSounds['squish' .. math.random(1,3)]:play()
 end
 
 function Enemy:isExpired()

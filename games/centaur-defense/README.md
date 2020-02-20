@@ -41,3 +41,19 @@ butler push release/CentaurDefense-win64.zip nathanleiby/centaur-defense:win64-a
 butler push release/love.app nathanleiby/centaur-defense:mac-alpha --userversion 0.0.1
 butler push release/CentaurDefense.love nathanleiby/centaur-defense:love-alpha --userversion 0.0.1
 ```
+
+
+## Attributions
+
+Thank you artists for creating this game art!
+
+Visuals
+
+- https://opengameart.org/content/medieval-rts-120
+- https://opengameart.org/content/centaur-0
+
+Music
+
+- https://opengameart.org/content/cheerful-degrade
+
+Creators: if you'd ever like me fix anything about an attribution, please let me know via email / Github issue / etc.

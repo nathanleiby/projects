@@ -6,6 +6,7 @@ local MINIMUM_SPAWN_INTERVAL = 0.5
 function PlayState:init()
     self.gameMap = GameMap()
     self.health = 10
+    self.score = 0
 
     self.players = {}     
     for i=1,NUM_PLAYERS do
@@ -34,8 +35,11 @@ function PlayState:update(dt)
         self.players[i]:update(dt)
 
         for j=1,#self.enemies do
-            if self.players[i]:checkForCollision(self.enemies[j]) then
-                self.enemies[j]:die()
+            local enemy = self.enemies[j]
+            
+            if not enemy.dead and self.players[i]:checkForCollision(enemy) then
+                enemy:die()
+                self.score = self.score + 10
             end
         end
     end
@@ -88,5 +92,6 @@ function PlayState:render()
 
     love.graphics.setColor(COLORS.BLACK)
     love.graphics.print("Health: " .. self.health, VIRTUAL_WIDTH-70, 5)
+    love.graphics.print("Score: " .. self.score, VIRTUAL_WIDTH-70, 20)
     love.graphics.setColor(COLORS.WHITE)
 end

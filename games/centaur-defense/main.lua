@@ -15,8 +15,16 @@ function love.load()
     love.graphics.setDefaultFilter('nearest', 'nearest')
     -- love.graphics.setFont(gFonts['medium'])
     love.window.setTitle('Centaur Defense')
+    love.graphics.setDefaultFilter('nearest', 'nearest')
 
     math.randomseed(os.time())
+
+    gSounds = {
+        ['squish1'] = love.audio.newSource('assets/sounds/fx/Squish1.wav', 'static'),
+        ['squish2'] = love.audio.newSource('assets/sounds/fx/Squish2.wav', 'static'),
+        ['squish3'] = love.audio.newSource('assets/sounds/fx/Squish3.wav', 'static'),
+        ['music'] = love.audio.newSource('assets/sounds/music/bg1.mp3', 'static')
+    }
     
     push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
         fullscreen = false,
@@ -30,9 +38,9 @@ function love.load()
     }
     gStateMachine:change('play')
 
-    -- gSounds['music']:setLooping(true)
-    -- gSounds['music']:setVolume(0.5)
-    -- gSounds['music']:play()
+    gSounds['music']:setLooping(true)
+    gSounds['music']:setVolume(0.5)
+    gSounds['music']:play()
 
     love.keyboard.keysPressed = {}
 end

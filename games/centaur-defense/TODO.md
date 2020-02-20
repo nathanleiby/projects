@@ -25,10 +25,10 @@ Features to build:
 - [ ] update player start locations - corners? on certain landtype?
 - [x] allow fullscreen
     - [x] fix fullscreen => small bug... needs to call push
-- [ ] add music
+- [x] add music
 - [ ] add fx 
     - attacks
-    - enemy death
+    - [x] enemy death
     - spawning a centaur
     - movement
 - [ ] more complex enemy paths
