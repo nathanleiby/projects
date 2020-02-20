@@ -14,11 +14,16 @@ Donwload the required version of Love, if you don't yet have it
 boon love download 11.3
 ```
 
-Make some releases (Love, Windows, MacOS)
+Update the version in `Boon.toml` 
+
 ```
-boon build .
-boon build . --target windows --version 11.3
-boon build . --target macos --version 11.3
+version = "<NEW VERSION>"
+```
+
+Then build some releases: Love, Windows (32bit and 64bit), MacOS
+
+```
+make build
 ```
 
 (NOTE: There's temporarily a bug where in my WSL setup the macos isn't getting renamed, so it's just `release/love.app` instead of `release/CentaurDefense.app`)
@@ -33,13 +38,16 @@ Login
 butler login
 ```
 
+Update the `VERSION` file to include your new version.
+
+```
+<NEW VERSION>
+```
+
 Push release(s), setting the version as needed.
 
 ```
-butler push release/CentaurDefense-win32.zip nathanleiby/centaur-defense:win32-alpha --userversion 0.0.1
-butler push release/CentaurDefense-win64.zip nathanleiby/centaur-defense:win64-alpha --userversion 0.0.1
-butler push release/love.app nathanleiby/centaur-defense:mac-alpha --userversion 0.0.1
-butler push release/CentaurDefense.love nathanleiby/centaur-defense:love-alpha --userversion 0.0.1
+make push
 ```
 
 
