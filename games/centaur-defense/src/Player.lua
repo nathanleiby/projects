@@ -40,6 +40,8 @@ function Player:init(playerNum)
             joystick = love.joystick.getJoysticks()[playerNum],
         }
     end
+
+    table.insert(self.color, .9) -- add some alpha
 end
 
 function Player:move(x,y)
@@ -61,4 +63,8 @@ function Player:render()
     love.graphics.setColor({0,0,0})
     love.graphics.printf(self.playerNum, x, y, radius*2, "center")
     love.graphics.setColor({1,1,1})
+
+    local scale = 0.5
+    iffy.drawSprite("centaur1", x, y, 0, scale, scale)
+
 end

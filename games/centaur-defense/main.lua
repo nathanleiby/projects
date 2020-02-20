@@ -3,6 +3,13 @@ require 'src/Dependencies'
 local isFullscreen = false
 
 iffy.newAtlas("assets/graphics/kenney_medievalRTSpack/Spritesheet/medievalRTS_spritesheet.png")
+iffy.newImage("centaur-spritesheet", "assets/graphics/centaur-1.0/centaur-m-brown.png")
+local centaurH = 340
+local centaurW = 192
+local tileH = centaurH / 4
+local tileW = centaurW / 3
+iffy.newSprite("centaur-spritesheet", "centaur1", 0, tileH*1, tileW, tileH)
+    
 
 function love.load()
     love.graphics.setDefaultFilter('nearest', 'nearest')

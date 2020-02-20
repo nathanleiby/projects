@@ -38,6 +38,7 @@ Features to build:
         - health
         - time / waves remaining
 - funz - love2d loading screen
+- autotiling to make edges look nice (https://gamedev.stackexchange.com/questions/58035/how-to-draw-tile-edges-when-you-dont-know-where-theyre-going)
 
 Ideas:
 - centaurs aren't static like normal towers. they can move
