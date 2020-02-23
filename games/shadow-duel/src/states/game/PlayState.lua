@@ -33,7 +33,7 @@ function PlayState:render()
     -- BACKGROUND
     -- Draw a (moving!) sine wave
     love.graphics.setColor(COLORS.BROWN)
-    love.graphics.rectangle( 'fill', 0, yBar, VIRTUAL_WIDTH, yBar)
+    love.graphics.rectangle( 'fill', 0, yBar, VIRTUAL_WIDTH, yBar/2)
 
     -- Draw a rainbow
 

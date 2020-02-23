@@ -41,6 +41,10 @@ function love.load()
     love.keyboard.keysPressed = {}
 end
 
+function love.resize(w, h)
+    push:resize(w, h)
+end
+
 function love.keypressed(key)
     -- add to our table of keys pressed this frame
     love.keyboard.keysPressed[key] = true

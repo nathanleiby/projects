@@ -2,7 +2,7 @@ Player = Class{}
 
 function Player:init()
     self.mapX = 1
-    self.mapY = 1
+    self.mapY = 2.5
 
     self.input = baton.new {
         controls = {
@@ -28,6 +28,6 @@ function Player:render()
     local y = (self.mapY - 1) * TILE_SIZE
 
     love.graphics.setColor({1,1,1})
-    local scale = 2
+    -- local scale = 2
     iffy.drawSprite("wizard-attack", x, y, 0, scale, scale)
 end
