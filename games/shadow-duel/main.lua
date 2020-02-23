@@ -14,8 +14,8 @@ function love.load()
     math.randomseed(os.time())
 
     -- window bar title
-    love.window.setTitle('Fight Scene')
-    love.graphics.setDefaultFilter('nearest', 'nearest')
+    love.window.setTitle('Sonic Blade')
+    -- love.graphics.setDefaultFilter('nearest', 'nearest')
 
     gSounds = {
         ['music'] = love.audio.newSource('assets/sounds/music.mp3', 'static')
@@ -34,7 +34,7 @@ function love.load()
     gStateMachine:change('play')
 
     gSounds['music']:setLooping(true)
-    gSounds['music']:setVolume(0.5)
+    gSounds['music']:setVolume(0.1)
     gSounds['music']:play()
 
     -- initialize user input
@@ -70,7 +70,9 @@ function love.update(dt)
 end
 
 function love.draw()
+    push:start()
     gStateMachine:render()
+    push:finish()
     -- love.graphics.print("hello!", 0, 0)
     -- love.graphics.print("Music Pos" .. GMusicPlayPos, 0, 20)
     -- love.graphics.print("Loop Pos" .. loopPos, 0, 40)
