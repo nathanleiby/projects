@@ -12,6 +12,7 @@ iffy.newImage("enemy-wizard-spritesheet", "assets/graphics/enemy-wizard-spritesh
 iffy.newSprite("enemy-wizard-spritesheet", "enemy-wizard", 4, 1, tileW, tileH)
 
 function love.load()
+    print("LOAD")
     -- seed the RNG
     math.randomseed(os.time())
 
@@ -73,6 +74,7 @@ function love.update(dt)
     --     love.audio.play(sounds['ding'])
     --     loopPos = 0
     -- end
+    gStateMachine:update(dt)
 end
 
 function love.draw()
