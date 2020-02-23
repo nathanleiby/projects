@@ -1,15 +1,35 @@
+require 'src/Dependencies'
+
 function love.load()
-    -- window bar title
-    love.window.setTitle('Fight Scene')
-
-    sounds = {}
-    sounds['music'] = love.audio.newSource("sounds/music.mp3")
-    sounds['ding'] = love.audio.newSource("sounds/ding.wav")
-
-    love.audio.play(sounds['music'])
-
     -- seed the RNG
     math.randomseed(os.time())
+
+    -- window bar title
+    love.window.setTitle('Fight Scene')
+    love.graphics.setDefaultFilter('nearest', 'nearest')
+
+    gSounds = {
+        ['music'] = love.audio.newSource('assets/sounds/music.mp3', 'static')
+    }
+
+    push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
+        fullscreen = false,
+        vsync = true,
+        resizable = true
+    })
+
+    gStateMachine = StateMachine {
+        -- ['start'] = function() return StartState() end,
+        ['play'] = function() return PlayState() end
+    }
+    gStateMachine:change('play')
+
+    gSounds['music']:setLooping(true)
+    gSounds['music']:setVolume(0.5)
+    gSounds['music']:play()
+
+    -- initialize user input 
+    love.keyboard.keysPressed = {}
 end
 
 function love.keypressed(key)
@@ -25,27 +45,25 @@ function love.keyboard.wasPressed(key)
     end
 end
 
-loopDur = 2
-loopPos = 0
 function love.update(dt)
-    love.keyboard.keysPressed = {}
-    GMusicPlayPos = sounds['music']:tell()
+    -- love.keyboard.keysPressed = {}
+    -- GMusicPlayPos = sounds['music']:tell()
 
-    loopPos = loopPos + dt
-    if loopPos > loopDur then
-        -- .5 to 2
-        local r = math.random()*1.5+0.5
-        print(r)
-        sounds['ding']:setPitch(r)
-        love.audio.play(sounds['ding'])
-        loopPos = 0
-    end
+    -- loopPos = loopPos + dt
+    -- if loopPos > loopDur then
+    --     -- .5 to 2
+    --     local r = math.random()*1.5+0.5
+    --     print(r)
+    --     sounds['ding']:setPitch(r)
+    --     love.audio.play(sounds['ding'])
+    --     loopPos = 0
+    -- end
 end
 
 function love.draw()
-    love.graphics.print("hello!", 0, 0)
-    love.graphics.print("Music Pos" .. GMusicPlayPos, 0, 20)
-    love.graphics.print("Loop Pos" .. loopPos, 0, 40)
+    -- love.graphics.print("hello!", 0, 0)
+    -- love.graphics.print("Music Pos" .. GMusicPlayPos, 0, 20)
+    -- love.graphics.print("Loop Pos" .. loopPos, 0, 40)
 end
 
 -- https://www.reddit.com/r/gamedev/comments/13y26t/how_do_rhythm_games_stay_in_sync_with_the_music/

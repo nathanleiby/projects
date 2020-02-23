@@ -4,6 +4,8 @@ function PlayState:init()
 end
 
 function PlayState:update(dt)
+    print("UPDATE")
+
 end
 
 function PlayState:render()
