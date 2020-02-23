@@ -48,5 +48,4 @@ function love.draw()
     love.graphics.print("Loop Pos" .. loopPos, 0, 40)
 end
 
-
 -- https://www.reddit.com/r/gamedev/comments/13y26t/how_do_rhythm_games_stay_in_sync_with_the_music/
