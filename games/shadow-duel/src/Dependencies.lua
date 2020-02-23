@@ -21,6 +21,9 @@ require 'src/states/BaseState'
 require 'src/states/game/PlayState'
 -- require 'src/states/game/StartState'
 
+-- classes
+require 'src/Player'
+
 --
 -- assets
 --

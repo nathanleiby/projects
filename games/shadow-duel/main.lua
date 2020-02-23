@@ -1,5 +1,14 @@
 require 'src/Dependencies'
 
+
+iffy.newImage("wizard-attack-spritesheet", "assets/graphics/wizard-attack-spritesheet.png")
+local wizardH = 64
+local wizardW = 64
+local tileH = wizardH / 1
+local tileW = wizardW / 1
+iffy.newSprite("wizard-attack-spritesheet", "wizard-attack", 4, 1, tileW, tileH)
+
+
 function love.load()
     -- seed the RNG
     math.randomseed(os.time())
@@ -28,7 +37,7 @@ function love.load()
     gSounds['music']:setVolume(0.5)
     gSounds['music']:play()
 
-    -- initialize user input 
+    -- initialize user input
     love.keyboard.keysPressed = {}
 end
 
@@ -61,6 +70,7 @@ function love.update(dt)
 end
 
 function love.draw()
+    gStateMachine:render()
     -- love.graphics.print("hello!", 0, 0)
     -- love.graphics.print("Music Pos" .. GMusicPlayPos, 0, 20)
     -- love.graphics.print("Loop Pos" .. loopPos, 0, 40)
