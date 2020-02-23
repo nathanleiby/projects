@@ -22,10 +22,21 @@ function Background:update(dt)
     end
 end
 
+local NUM_DOTS = 100
+local DOT_RADIUS = 2
 function Background:render()
     -- Draw a (moving!) sine wave
     love.graphics.setColor(COLORS.BROWN)
     love.graphics.rectangle( 'fill', 0, yBar, VIRTUAL_WIDTH, yBar/2)
+
+    love.graphics.setColor(COLORS.WHITE)
+    local xOffset = self.wPos
+    for i=1,NUM_DOTS do
+        local x = i * (VIRTUAL_WIDTH/NUM_DOTS) 
+        local yOffset = (3 * yBar /4) * math.sin(x + self.wPos)
+        love.graphics.circle('fill', x, yBar + yOffset, DOT_RADIUS)
+    end
+
 
     -- Draw a rainbow
 

@@ -3,6 +3,7 @@ require 'src/Dependencies'
 
 
 function love.load()
+    print("LOAD")
     -- seed the RNG
     math.randomseed(os.time())
 
@@ -68,6 +69,7 @@ function love.update(dt)
     --     love.audio.play(sounds['ding'])
     --     loopPos = 0
     -- end
+    gStateMachine:update(dt)
 end
 
 function love.draw()

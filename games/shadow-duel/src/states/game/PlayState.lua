@@ -10,7 +10,7 @@ end
 function PlayState:update(dt)
     self.background:update(dt)
 
-    self.players.input:update()
+    self.player.input:update()
     local input = self.player.input
     -- local x, y = input:get('move')
     -- if input:pressed('left') or input:pressed('right') or input:pressed('up') or input:pressed('down') then
