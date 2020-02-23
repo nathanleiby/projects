@@ -28,6 +28,6 @@ function Player:render()
     local y = (self.mapY - 1) * TILE_SIZE
 
     love.graphics.setColor({1,1,1})
-    -- local scale = 2
-    iffy.drawSprite("wizard-attack", x, y, 0, scale, scale)
+    local scale = 2
+    iffy.drawSprite("player_wizard_attack_04.png", x, y, 0, scale, scale, 4)
 end

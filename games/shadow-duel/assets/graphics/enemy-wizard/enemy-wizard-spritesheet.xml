@@ -1,0 +1,6 @@
+<TextureAtlas imagePath="enemy-wizard-spritesheet.png">
+	<SubTexture name="enemy_wizard_attack_01.png" x="0" y="0" width="64" height="64"/>
+  <SubTexture name="enemy_wizard_attack_02.png" x="64" y="0" width="64" height="64"/>
+  <SubTexture name="enemy_wizard_attack_03.png" x="128" y="0" width="64" height="64"/>
+  <SubTexture name="enemy_wizard_attack_04.png" x="192" y="0" width="64" height="64"/>
+</TextureAtlas>

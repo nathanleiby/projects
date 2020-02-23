@@ -1,15 +1,6 @@
 require 'src/Dependencies'
 
 
-iffy.newImage("wizard-attack-spritesheet", "assets/graphics/wizard-attack-spritesheet.png")
-local wizardH = 64
-local wizardW = 64
-local tileH = wizardH / 1
-local tileW = wizardW / 1
-iffy.newSprite("wizard-attack-spritesheet", "wizard-attack", 4, 1, tileW, tileH)
-
-iffy.newImage("enemy-wizard-spritesheet", "assets/graphics/enemy-wizard-spritesheet.png")
-iffy.newSprite("enemy-wizard-spritesheet", "enemy-wizard", 4, 1, tileW, tileH)
 
 function love.load()
     -- seed the RNG
@@ -17,7 +8,11 @@ function love.load()
 
     -- window bar title
     love.window.setTitle('Sonic Blade')
-    -- love.graphics.setDefaultFilter('nearest', 'nearest')
+    love.graphics.setDefaultFilter('nearest', 'nearest')
+
+
+    iffy.newAtlas("assets/graphics/enemy-wizard/enemy-wizard-spritesheet.png")
+    iffy.newAtlas("assets/graphics/player-wizard/wizard-attack-spritesheet.png")
 
     gSounds = {
         ['music'] = love.audio.newSource('assets/sounds/music.mp3', 'static')
