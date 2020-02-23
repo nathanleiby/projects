@@ -15,6 +15,7 @@ function PlayState:init()
     self.score = 0
 
     self.player = Player()
+    self.enemy = Enemy()
     self.wavState = nil
 end
 
@@ -48,6 +49,7 @@ function PlayState:render()
     -- FOREGROUND
     -- render players last
     self.player:render()
+    self.enemy:render()
 
     love.graphics.print("Score: " .. self.score, VIRTUAL_WIDTH-70, 20)
     love.graphics.setColor(COLORS.WHITE)

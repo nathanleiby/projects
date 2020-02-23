@@ -8,6 +8,8 @@ local tileH = wizardH / 1
 local tileW = wizardW / 1
 iffy.newSprite("wizard-attack-spritesheet", "wizard-attack", 4, 1, tileW, tileH)
 
+iffy.newImage("enemy-wizard-spritesheet", "assets/graphics/enemy-wizard-spritesheet.png")
+iffy.newSprite("enemy-wizard-spritesheet", "enemy-wizard", 4, 1, tileW, tileH)
 
 function love.load()
     -- seed the RNG

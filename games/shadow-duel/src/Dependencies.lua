@@ -23,6 +23,7 @@ require 'src/states/game/PlayState'
 
 -- classes
 require 'src/Player'
+require 'src/Enemy'
 
 --
 -- assets
