@@ -25,6 +25,7 @@ require 'src/states/game/StartState'
 require 'src/Player'
 require 'src/Enemy'
 require 'src/Background'
+require 'src/SpellGrid'
 
 --
 -- assets

@@ -7,7 +7,6 @@ function Player:init()
     self.mapY = 2.5
     self.attacking = false
     self.attackPhase = 0
-    self.lastAnimationAt = love.timer.getTime()
 
     self.input = baton.new {
         controls = {

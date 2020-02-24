@@ -3,7 +3,6 @@ require 'src/Dependencies'
 
 
 function love.load()
-    print("LOAD")
     -- seed the RNG
     math.randomseed(os.time())
 
@@ -24,10 +23,14 @@ function love.load()
         ['mus'] = love.audio.newSource('assets/sounds/drumloops/mus.ogg', 'static'),
         ['1Bar'] = love.audio.newSource('assets/sounds/drumloops/1Bar.ogg', 'static'),
         ['specht'] = love.audio.newSource('assets/sounds/drumloops/specht.ogg', 'static'),
+        ['struis'] = love.audio.newSource('assets/sounds/drumloops/struis.ogg', 'static'),
+        ['koekkoek'] = love.audio.newSource('assets/sounds/drumloops/koekkoek.ogg', 'static'),
+        ['drinkvogel'] = love.audio.newSource('assets/sounds/drumloops/drinkvogel.ogg', 'static'),
 
         -- Pitches
-
-
+        ['ding'] = love.audio.newSource('assets/sounds/ding.wav', 'static'),
+        ['laser'] = love.audio.newSource('assets/sounds/Laser_Shoot2.wav', 'static'),
+        ['hit'] = love.audio.newSource('assets/sounds/Hit_Hurt.wav', 'static'),
     }
 
     push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
@@ -41,11 +44,6 @@ function love.load()
         ['play'] = function() return PlayState() end
     }
     gStateMachine:change('play')
-
-    local drumTrack = 'mus'
-    gSounds[drumTrack]:setLooping(true)
-    gSounds[drumTrack]:setVolume(0.5)
-    gSounds[drumTrack]:play()
 
     -- initialize user input
     love.keyboard.keysPressed = {}
@@ -69,18 +67,6 @@ function love.keyboard.wasPressed(key)
 end
 
 function love.update(dt)
-    -- love.keyboard.keysPressed = {}
-    -- GMusicPlayPos = sounds['music']:tell()
-
-    -- loopPos = loopPos + dt
-    -- if loopPos > loopDur then
-    --     -- .5 to 2
-    --     local r = math.random()*1.5+0.5
-    --     print(r)
-    --     sounds['ding']:setPitch(r)
-    --     love.audio.play(sounds['ding'])
-    --     loopPos = 0
-    -- end
     gStateMachine:update(dt)
 end
 
