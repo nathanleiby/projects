@@ -29,3 +29,7 @@ How to emphasize _frequency_?
 - audio visualizer:
   - middle of screen is shadow duel, but in background or as a bar across the upper part of the screen, visualize the waveform of the current pitch.
 - frequency could also have to do with _speed_ at which notes come at your. Low frequency means "long interval between the notes".
+
+## Attributions
+
+- Drums: https://opengameart.org/content/8-fat-drum-beat-loops-pack-club-drums

@@ -16,7 +16,18 @@ function love.load()
     iffy.newAtlas("assets/graphics/player-wizard/wizard-attack-spritesheet.png")
 
     gSounds = {
-        ['music'] = love.audio.newSource('assets/sounds/music.mp3', 'static')
+        ['music'] = love.audio.newSource('assets/sounds/music.mp3', 'static'),
+
+        -- Drum Loops
+        -- TODO: Try aligning these and fading among them
+        ['kip'] = love.audio.newSource('assets/sounds/drumloops/kip.ogg', 'static'),
+        ['mus'] = love.audio.newSource('assets/sounds/drumloops/mus.ogg', 'static'),
+        ['1Bar'] = love.audio.newSource('assets/sounds/drumloops/1Bar.ogg', 'static'),
+        ['specht'] = love.audio.newSource('assets/sounds/drumloops/specht.ogg', 'static'),
+
+        -- Pitches
+
+
     }
 
     push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {
@@ -31,9 +42,10 @@ function love.load()
     }
     gStateMachine:change('play')
 
-    gSounds['music']:setLooping(true)
-    gSounds['music']:setVolume(0.1)
-    gSounds['music']:play()
+    local drumTrack = 'mus'
+    gSounds[drumTrack]:setLooping(true)
+    gSounds[drumTrack]:setVolume(0.5)
+    gSounds[drumTrack]:play()
 
     -- initialize user input
     love.keyboard.keysPressed = {}
