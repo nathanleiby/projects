@@ -5,6 +5,16 @@ local r2 = {1, 0, 1, 1, 0, 0, 0, 0}
 local r3 = {0, 1, 0, 1, 0, 1, 0, 1}
 local rhythms = {r1, r2, r3}
 
+local drumTracks = {
+    'kip',
+    'mus',
+    '1Bar', -- make the game feel double speed. excite!
+    'specht',
+    'struis',
+    'koekkoek',
+    'drinkvogel',
+}
+
 local BEATS_PER_LOOP = 8
 
 function PlayState:init()
@@ -15,7 +25,7 @@ function PlayState:init()
     self.spellgrid = SpellGrid()
 
     self.rhythm = lume.randomchoice(rhythms)
-    self.drumTrack = 'struis'
+    self.drumTrack = lume.randomchoice(drumTracks)
     self.loopDur = gSounds[self.drumTrack]:getDuration()
     self:resetLoop()
     gSounds[self.drumTrack]:setLooping(true)

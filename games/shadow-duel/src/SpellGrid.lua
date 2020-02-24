@@ -3,11 +3,12 @@ SpellGrid = Class{}
 local SZ = TILE_SIZE * 2
 
 function SpellGrid:init()
+    -- height = num spell types
     self.height = 3
-    self.width = 8
+    -- width = num beats
+    self.width = 11
 
-    -- 3 (num spell types) x 8 grid (beats before impact)
-    self.xOffset = TILE_SIZE*11
+    self.xOffset = TILE_SIZE*8
     self.yOffset = TILE_SIZE*10
 
     self.enemySpells = {}
@@ -106,6 +107,24 @@ function SpellGrid:addBeat()
     end
 
     -- TODO: Check for collisions and swaps
+    for y=1,self.height do
+        for x=1, self.width do
+            if self.playerSpells[y][x] == 1 and self.enemySpells[y][x] == 1 then
+                -- exact collision
+                self.playerSpells[y][x] = 0
+                self.enemySpells[y][x] = 0
+            end
+
+            if x < 8 then
+                -- they swapped. now the player spells is 1 right of the enemy spell
+                if self.playerSpells[y][x+1] == 1 and self.enemySpells[y][x] == 1 then
+                    self.playerSpells[y][x+1] = 0
+                    self.enemySpells[y][x] = 0
+                end
+            end
+
+        end
+    end
 end
 
 function SpellGrid:getHeight()
