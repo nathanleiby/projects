@@ -9,24 +9,32 @@ function SpellGrid:init()
     -- 3 (num spell types) x 8 grid (beats before impact)
     self.xOffset = TILE_SIZE*11
     self.yOffset = TILE_SIZE*10
-    self.enemySpellsReady = {
-        0,0,0
-    }
-    self.playerSpellsReady = {
-        0,0,0
-    }
-    self.playerSpells = {}
-    self.enemySpells = {
-        {0,0,0,0,0,0,0,0},
-        {0,0,0,0,0,0,0,0},
-        {0,0,0,0,0,0,0,0},
-    }
-    self.playerSpells= {
-        {0,0,0,0,0,0,0,0},
-        {0,0,0,0,0,0,0,0},
-        {0,0,0,0,0,0,0,0},
-    }
-    -- ? might the spells slide instead of blink their way across
+
+    self.enemySpells = {}
+    for y=1,self.height do
+        row = {}
+        for x=1,self.width do
+            table.insert(row, 0)
+        end
+        table.insert(self.enemySpells, row)
+    end
+    self.enemySpellsReady= {}
+    for y=1,self.height do
+        table.insert(self.enemySpellsReady, 0)
+    end
+
+    self.playerSpells= {}
+    for y=1,self.height do
+        row = {}
+        for x=1,self.width do
+            table.insert(row, 0)
+        end
+        table.insert(self.playerSpells, row)
+    end
+    self.playerSpellsReady = {}
+    for y=1,self.height do
+        table.insert(self.playerSpellsReady, 0)
+    end
 end
 
 function SpellGrid:update(dt)
@@ -35,6 +43,7 @@ end
 
 function SpellGrid:render()
     -- Enemy Spells
+    -- ? might the spells slide instead of blink their way across
     for y=0,self.height-1 do
         for x=0,self.width-1 do
             if self.enemySpells[y+1][x+1] == 1 then
