@@ -7,7 +7,7 @@ function love.load()
     math.randomseed(os.time())
 
     -- window bar title
-    love.window.setTitle('Sonic Blade')
+    love.window.setTitle('MMM')
     love.graphics.setDefaultFilter('nearest', 'nearest')
 
 
