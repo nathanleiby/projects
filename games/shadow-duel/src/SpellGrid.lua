@@ -8,6 +8,9 @@ function SpellGrid:init()
     -- width = num beats
     self.width = 11
 
+    -- where is the arrow pointing?
+    self.arrowHeight = 1
+
     self.xOffset = TILE_SIZE*8
     self.yOffset = TILE_SIZE*10
 
@@ -62,6 +65,9 @@ function SpellGrid:render()
     end
 
     love.graphics.setColor(COLORS.WHITE)
+
+    -- Draw arrow to indicate the spell the player is about to cast
+    love.graphics.draw(gImages['arrow'], self.xOffset - 64 - 8, self.yOffset - 16 + ((self.arrowHeight-1) * SZ))
 end
 
 function SpellGrid:addSpell(who, y)
@@ -105,14 +111,21 @@ function SpellGrid:addBeat()
             self.playerSpellsReady[y] = 0
         end
     end
+end
 
-    -- TODO: Check for collisions and swaps
+function SpellGrid:resolveCollisions()
+    local collisions = {}
     for y=1,self.height do
         for x=1, self.width do
             if self.playerSpells[y][x] == 1 and self.enemySpells[y][x] == 1 then
                 -- exact collision
                 self.playerSpells[y][x] = 0
                 self.enemySpells[y][x] = 0
+                table.insert(collisions, {
+                    x=x,
+                    y=y,
+                    kind='exact'
+                })
             end
 
             if x < 8 then
@@ -120,14 +133,23 @@ function SpellGrid:addBeat()
                 if self.playerSpells[y][x+1] == 1 and self.enemySpells[y][x] == 1 then
                     self.playerSpells[y][x+1] = 0
                     self.enemySpells[y][x] = 0
+                    table.insert(collisions, {
+                        x=x,
+                        y=y,
+                        kind='swap'
+                    })
                 end
             end
-
         end
     end
+
+    return collisions
 end
 
 function SpellGrid:getHeight()
     return self.height
 end
 
+function SpellGrid:getWidth()
+    return self.width
+end

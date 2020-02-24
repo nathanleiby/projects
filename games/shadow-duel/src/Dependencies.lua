@@ -26,6 +26,7 @@ require 'src/Player'
 require 'src/Enemy'
 require 'src/Background'
 require 'src/SpellGrid'
+require 'src/HealthMeter'
 
 --
 -- assets

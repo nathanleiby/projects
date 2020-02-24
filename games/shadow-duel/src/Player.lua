@@ -14,7 +14,7 @@ function Player:init()
             right = {'key:right', 'axis:leftx+', 'button:dpright'},
             up = {'key:up', 'axis:lefty-', 'button:dpup'},
             down = {'key:down', 'axis:lefty+', 'button:dpdown'},
-            action = {'key:return', 'button:a'},
+            action = {'key:space', 'button:a'},
         },
         pairs = {
             move = {'left', 'right', 'up', 'down'}

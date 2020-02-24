@@ -3,8 +3,11 @@
 - [...] add three sounds for diff attack types
 - [x] play the sounds in a simple rhythm (e.g. where Q is quarter and (r) is rest)
   - Q (r) Q Q Q
-- [ ] you can fire one spell per beat
-- [ ] handle spell collisions
+- [x] you can fire one spell per beat
+- [x] handle spell collisions
+  - [x] explode / cancel out
+  - [.. ] based on position, push back 1 wiz or other
+- arrows and spacebar to choose level
 - [ ] vary difficulty by
   - frequency of notes sent
   - height of the grid (number of diff replies required)
@@ -12,6 +15,7 @@
   - diff types of spells?
     - kinds like a sword or shield to denote attack or defense?
     - powerups like a "super spell" that's more powerful and pushes further (allows a player to respond if they're slow)
+  - speed of beat (can increase via `:setPitch(v)`
 - where the notes collide determines who gets pushed back
   - "sumo" mechanics -- you are trying not to get pushed off the edge
 - [ ] hit or miss

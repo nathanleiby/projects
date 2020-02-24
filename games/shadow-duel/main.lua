@@ -13,6 +13,9 @@ function love.load()
 
     iffy.newAtlas("assets/graphics/enemy-wizard/enemy-wizard-spritesheet.png")
     iffy.newAtlas("assets/graphics/player-wizard/wizard-attack-spritesheet.png")
+    gImages = {
+        ['arrow'] = love.graphics.newImage("assets/graphics/arrow.png")
+    }
 
     gSounds = {
         ['music'] = love.audio.newSource('assets/sounds/music.mp3', 'static'),
