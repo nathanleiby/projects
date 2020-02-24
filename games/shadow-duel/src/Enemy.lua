@@ -6,7 +6,6 @@ function Enemy:init()
 end
 
 function Enemy:update(dt)
-
 end
 
 function Enemy:render()
@@ -15,5 +14,6 @@ function Enemy:render()
 
     love.graphics.setColor({1,1,1})
     local scale = 2
-    iffy.drawSprite("enemy_wizard_attack_04.png", x, y, 0, scale, scale)
+    local sprite = "enemy_wizard_attack_04.png"
+    iffy.drawSprite(sprite, x, y, 0, scale, scale)
 end

@@ -13,9 +13,9 @@ function PlayState:update(dt)
     self.player.input:update()
     local input = self.player.input
     -- local x, y = input:get('move')
-    -- if input:pressed('left') or input:pressed('right') or input:pressed('up') or input:pressed('down') then
-        -- attack
-    -- end
+    if input:pressed('action') then
+        self.player:attack()
+    end
 
     self.player:update(dt)
 end

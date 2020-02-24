@@ -1,8 +1,13 @@
 Player = Class{}
 
+PLAYER_ANIMATION_DELAY = 0.1
+
 function Player:init()
     self.mapX = 1
     self.mapY = 2.5
+    self.attacking = false
+    self.attackPhase = 0
+    self.lastAnimationAt = love.timer.getTime()
 
     self.input = baton.new {
         controls = {
@@ -19,8 +24,21 @@ function Player:init()
     }
 end
 
-function Player:update(dt)
+function Player:attack()
+    self.attacking = true
+    self.attackPhase = 1
+    self.lastAnimationAt = love.timer.getTime()
+end
 
+function Player:update(dt)
+    if (self.attacking and self.attackPhase < 4 and love.timer.getTime() - self.lastAnimationAt >= PLAYER_ANIMATION_DELAY) then
+        self.attackPhase = self.attackPhase + 1
+        self.lastAnimationAt = love.timer.getTime()
+    end
+
+    if (self.attacking and self.attackPhase >= 4) then
+        self.attacking = false
+    end
 end
 
 function Player:render()
@@ -29,5 +47,12 @@ function Player:render()
 
     love.graphics.setColor({1,1,1})
     local scale = 2
-    iffy.drawSprite("player_wizard_attack_04.png", x, y, 0, scale, scale, 4)
+
+    local sprite = "player_wizard_attack_04.png"
+    if (self.attacking) then
+        local attackPhaseString = tostring(self.attackPhase)
+        sprite = "player_wizard_attack_0"..attackPhaseString..".png"
+    end
+
+    iffy.drawSprite(sprite, x, y, 0, scale, scale, 4)
 end
