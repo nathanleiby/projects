@@ -47,7 +47,7 @@ function PlayState:update(dt)
         -- quarter note rhythms
         if self.rhythm[self.nextBeatNum + 1] > 0 then
             self.enemy:attack()
-            self.spellgrid:addSpell()
+            self.spellgrid:addSpell('enemy', math.random(1,self.spellgrid:getHeight()))
         end
         self.nextBeatPos = self.nextBeatPos + (self.loopDur / BEATS_PER_LOOP)
         self.nextBeatNum = self.nextBeatNum + 1
