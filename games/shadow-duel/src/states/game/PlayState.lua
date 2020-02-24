@@ -21,6 +21,9 @@ function PlayState:init()
     gSounds[self.drumTrack]:setLooping(true)
     gSounds[self.drumTrack]:setVolume(0.1)
     gSounds[self.drumTrack]:play()
+
+    -- player can only attack once per beat
+    self.playerAttackedThisBeat = false
 end
 
 
@@ -30,8 +33,10 @@ function PlayState:update(dt)
     self.player.input:update()
     local input = self.player.input
     -- local x, y = input:get('move')
-    if input:pressed('action') then
+    if input:pressed('action') and not self.playerAttackedThisBeat then
         self.player:attack()
+        self.spellgrid:addSpell('player', math.random(1,self.spellgrid:getHeight()))
+        self.playerAttackedThisBeat = true
     end
 
     self.player:update(dt)
@@ -51,6 +56,7 @@ function PlayState:update(dt)
         end
         self.nextBeatPos = self.nextBeatPos + (self.loopDur / BEATS_PER_LOOP)
         self.nextBeatNum = self.nextBeatNum + 1
+        self.playerAttackedThisBeat = false
         self.spellgrid:addBeat()
     end
 end

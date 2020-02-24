@@ -3,7 +3,17 @@
 - [...] add three sounds for diff attack types
 - [x] play the sounds in a simple rhythm (e.g. where Q is quarter and (r) is rest)
   - Q (r) Q Q Q
-- [ ] have player input the keys in that order
+- [ ] you can fire one spell per beat
+- [ ] handle spell collisions
+- [ ] vary difficulty by
+  - frequency of notes sent
+  - height of the grid (number of diff replies required)
+  - width of the grid (time you have to reply)
+  - diff types of spells?
+    - kinds like a sword or shield to denote attack or defense?
+    - powerups like a "super spell" that's more powerful and pushes further (allows a player to respond if they're slow)
+- where the notes collide determines who gets pushed back
+  - "sumo" mechanics -- you are trying not to get pushed off the edge
 - [ ] hit or miss
   - if correct, say hit! - enemy takes damage
   - if incorrect, say miss! - take damage

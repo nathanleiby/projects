@@ -23,6 +23,7 @@ Ideas:
 - start with small pallette of notes and then grow
 - story: why are you fighting? Maybe you are losing your sense of sound and you need to recover it. An evildoer has stolen sounds and hidden them in his castle, and you have to battle to get the sounds back!
 - on a controller.. what if up/left/down are defense and right is attack? hitting the notes (up/left/down) is to defenend, and then you can stab back during the rests (right).
+- two types of spell collisions -- landing on same beats square (moving into it at same time) or crossing (swapping positions)
 
 How to emphasize _frequency_?
 
