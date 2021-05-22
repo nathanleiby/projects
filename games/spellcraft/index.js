@@ -7,9 +7,9 @@ const SQUARE_WIDTH = 100;
 const radius = SQUARE_WIDTH / 2;
 
 const points = [
+  [1, 0, 1],
   [1, 0, 0],
-  [1, 1, 1],
-  [1, 0, 0],
+  [1, 0, 1],
 ];
 
 function neighbors(row, col) {
@@ -25,6 +25,24 @@ function neighbors(row, col) {
   return ns.filter(
     (p) => p[0] >= 0 && p[0] < bound && p[1] >= 0 && p[1] < bound
   );
+}
+
+for (let row = 0; row < points.length; row++) {
+  for (let col = 0; col < points[row].length; col++) {
+    const x = row * SQUARE_WIDTH;
+    const y = col * SQUARE_WIDTH;
+    svg.appendChild(
+      rc.rectangle(x, y, SQUARE_WIDTH, SQUARE_WIDTH, {
+        // fill: "red",
+        stroke: "lightgray",
+        fill: "lightgray",
+        hachureAngle: 60,
+        hachureGap: 10,
+        fillWeight: 0.5,
+        strokeWidth: 2,
+      })
+    );
+  }
 }
 
 for (let row = 0; row < points.length; row++) {
@@ -51,7 +69,7 @@ for (let row = 0; row < points.length; row++) {
       });
 
       console.log({ x, y, validNeighborCount });
-      if (validNeighborCount === 1) {
+      if (validNeighborCount <= 1) {
         svg.appendChild(
           rc.circle(x, y, radius, {
             stroke: "red",
@@ -65,25 +83,12 @@ for (let row = 0; row < points.length; row++) {
   }
 }
 
-// //line and rectangle
-// svg.appendChild(rc.line(50, 50, 150, 50, { strokeWidth: 5 }));
-// svg.appendChild(rc.rectangle(10, 10, 100, 100));
-// svg.appendChild(
-//   rc.rectangle(140, 10, 100, 100, {
-//     fill: "rgba(255,0,0,0.2)",
-//     fillStyle: "solid",
-//     roughness: 2,
-//   })
-// );
-// svg.appendChild(
-//   rc.rectangle(10, 130, 100, 100, {
-//     fill: "red",
-//     stroke: "blue",
-//     hachureAngle: 60,
-//     hachureGap: 10,
-//     fillWeight: 5,
-//     strokeWidth: 5,
-//   })
-// );
+function download() {
+  svgExport.downloadSvg(
+    document.getElementById("svg"), // SVG DOM Element object to be exported. Alternatively, a string of the serialized SVG can be passed
+    "svg", // chart title: file name of exported image
+    { width: 300, height: 300 } // options (optional, please see below for a list of option properties)
+  );
+}
 
-// // ellipse and circle
+download();
