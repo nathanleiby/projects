@@ -81,7 +81,8 @@ const spells = [
 ];
 
 // which spell?
-const points = spells[9];
+const spellIdx = 0;
+const points = spells[spellIdx];
 
 function neighbors(row, col) {
   const ns = [
@@ -100,6 +101,12 @@ function neighbors(row, col) {
 }
 
 function draw() {
+  // white background (not transparent)
+  var ctx = canvas.getContext("2d");
+  ctx.fillStyle = "white";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  // draw grid (gray squares in background)
   for (let row = 0; row < points.length; row++) {
     for (let col = 0; col < points[row].length; col++) {
       const y = row * SQUARE_WIDTH;
@@ -118,6 +125,7 @@ function draw() {
     }
   }
 
+  // draw spell (lines and nodes)
   for (let row = 0; row < points.length; row++) {
     for (let col = 0; col < points[row].length; col++) {
       const element = points[row][col];
@@ -160,10 +168,19 @@ function draw() {
 
 draw();
 
-// function download() {
-//   svgExport.downloadSvg(
-//     document.getElementById("svg"), // SVG DOM Element object to be exported. Alternatively, a string of the serialized SVG can be passed
-//     "svg", // chart title: file name of exported image
-//     { width: 300, height: 300 } // options (optional, please see below for a list of option properties)
-//   );
-// }
+function downloadImage() {
+  console.log(canvas.toDataURL());
+
+  var link = document.createElement("a");
+  link.download = `spell-${spellIdx}.png`;
+  link.href = canvas.toDataURL();
+  link.click();
+  link.delete;
+}
+
+const download = document.getElementById("download");
+download.addEventListener("click", function (e) {
+  downloadImage();
+});
+
+// downloadImage();
