@@ -1,6 +1,3 @@
-// const svg = document.getElementById("svg");
-// const rc = rough.svg(svg);
-
 const canvas = document.getElementById("canvas");
 const rc = rough.canvas(canvas);
 
@@ -28,10 +25,29 @@ const spells = [
     [1, 1, 1],
     [0, 1, 1],
   ],
+  // antennae
+  [
+    [0, 1, 0],
+    [1, 1, 1],
+    [1, 1, 1],
+  ],
+  // galaga / slingshot / "y"
+  [
+    [1, 0, 1],
+    [1, 1, 1],
+    [0, 1, 0],
+  ],
+  // short u
+  [
+    [1, 0, 1],
+    [1, 1, 1],
+    [0, 0, 0],
+  ],
   // square
   [
-    [1, 1],
-    [1, 1],
+    [1, 1, 0],
+    [1, 1, 0],
+    [0, 0, 0],
   ],
   // line
   [
@@ -39,14 +55,33 @@ const spells = [
     [0, 1, 0],
     [0, 1, 0],
   ],
+  // cross
+  [
+    [0, 1, 0],
+    [1, 1, 1],
+    [0, 1, 0],
+  ],
+  // H
+  [
+    [1, 0, 1],
+    [1, 1, 1],
+    [1, 0, 1],
+  ],
+
+  // non 3x3 experiments... (TODO: needs to update the canvas size for each of these)
   // line vertical
   [[1], [1], [1]],
   // line horiz
   [[1, 1, 1]],
+  // smaller square
+  [
+    [1, 1],
+    [1, 1],
+  ],
 ];
 
 // which spell?
-const points = spells[6];
+const points = spells[9];
 
 function neighbors(row, col) {
   const ns = [
@@ -64,7 +99,7 @@ function neighbors(row, col) {
   );
 }
 
-function drawImages() {
+function draw() {
   for (let row = 0; row < points.length; row++) {
     for (let col = 0; col < points[row].length; col++) {
       const y = row * SQUARE_WIDTH;
@@ -123,7 +158,7 @@ function drawImages() {
   }
 }
 
-drawImages();
+draw();
 
 // function download() {
 //   svgExport.downloadSvg(
