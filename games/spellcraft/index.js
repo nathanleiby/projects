@@ -67,6 +67,12 @@ const spells = [
     [1, 1, 1],
     [1, 0, 1],
   ],
+  // mini vert line
+  [
+    [0, 1, 0],
+    [0, 1, 0],
+    [0, 0, 0],
+  ],
 
   // non 3x3 experiments... (TODO: needs to update the canvas size for each of these)
   // line vertical
@@ -81,7 +87,7 @@ const spells = [
 ];
 
 // which spell?
-const spellIdx = 0;
+const spellIdx = 10;
 const points = spells[spellIdx];
 
 function neighbors(row, col) {
