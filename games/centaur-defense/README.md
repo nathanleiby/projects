@@ -2,6 +2,8 @@
 
 Tower defense with centaurs.
 
+![Screenshot](screenshot.png)
+
 https://nathanleiby.itch.io/centaur-defense
 
 ## Releasing
@@ -14,7 +16,7 @@ Donwload the required version of Love, if you don't yet have it
 boon love download 11.3
 ```
 
-Update the version in `Boon.toml` 
+Update the version in `Boon.toml`
 
 ```
 version = "<NEW VERSION>"
